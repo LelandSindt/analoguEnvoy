@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+## Todo
+# dynamically find produciton/consumption entries
+# handle expired tokens... ?quit and let systemd restart the script?
+
 import requests
 import time 
 import RPi.GPIO as GPIO
@@ -52,8 +56,9 @@ while True:
   try:
     production = requests.get('https://envoy.local/production.json', headers=headers, verify=False)
     # make sure that the 0nth element is the right thing to do here... itterate?
-    print('Production: ' + str(production.json()['production'][0]['wNow']) + ' W')
+    print('Production: ' + str(production.json()['production'][0]['wNow']) + ' W Consumption: ' + str(production.json()['consumption'][0]['wNow']) + ' W')
     produce.start(translate(clamp(production.json()['production'][0]['wNow'],0,9000),0,9000,0,100))
+    consume.start(translate(clamp(production.json()['consumption'][0]['wNow'],0,9000),0,9000,0,100))
   except:
     print('...')
   time.sleep(30)
