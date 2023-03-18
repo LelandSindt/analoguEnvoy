@@ -26,8 +26,8 @@ def translate(sensor_val, in_from, in_to, out_from, out_to):
 def clamp(n, minn, maxn):
   return max(min(maxn, n), minn)
 
-production = pwmio.PWMOut(board.GP6, frequency=5000, duty_cycle=0)
-consumption = pwmio.PWMOut(board.GP7, frequency=5000, duty_cycle=0)
+productionPWM   = pwmio.PWMOut(board.GP6, frequency=5000, duty_cycle=0)
+consumptionPWM  = pwmio.PWMOut(board.GP7, frequency=5000, duty_cycle=0)
 
 print()
 print("Connecting to WiFi")
@@ -77,8 +77,8 @@ while True:
     production = requestsInsecure.get('https://envoy.local/production.json', headers=headers) 
     #print(production.json())
     print('Production: ' + str(production.json()['production'][0]['wNow']) + ' W Consumption: ' + str(production.json()['consumption'][0]['wNow']) + ' W')
-    production.duty_cycle = translate(clamp(production.json()['production'][0]['wNow'],0,9000),0,9000,0,100)
-    consumption.duty_cycle = translate(clamp(production.json()['consumption'][0]['wNow'],0,9000),0,9000,0,100)
+    productionPWM.duty_cycle  = translate(clamp(production.json()['production'][0]['wNow'],0,9000),0,9000,0,65535)
+    consumptionPWM.duty_cycle = translate(clamp(production.json()['consumption'][0]['wNow'],0,9000),0,9000,0,65535)
   except:
     print('...')
   time.sleep(120)
