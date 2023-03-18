@@ -1,0 +1,8 @@
+[Unit]
+Description=solar
+
+[Service]
+ExecStart=/home/pi/solar.py
+
+[Install]
+WantedBy=multi-user.target
