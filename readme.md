@@ -14,10 +14,10 @@ Written in [CircutPython](https://circuitpython.org/), [code.py](/circutpython/c
 All three versions use PWM to drive analogue gauges with a 3v range.
 
 ## Meters
-I have been using [this 15v meter from Amazon](https://www.amazon.com/Baomain-Analogue-Voltage-Analog-Voltmeter/dp/B06XXM74SC/) and converting them to 3v range by swapping out the internal 15kΩ resistor with a 3kΩ resitor.
+I have been using [this 15v meter from Amazon](https://www.amazon.com/Baomain-Analogue-Voltage-Analog-Voltmeter/dp/B06XXM74SC/) and converting them to 3v range by swapping out the internal 15kΩ resistor with a 3kΩ resistor.
 
 ## Custom Face
-[face.svg](./face/face.svg) is a bitmap to vector conversion of a screen schot of the designed I used in Cricut Design Space. Not ideal, but it should give you a place to start. (I could not find a way to directly export from Design Space.)
+[face.svg](./face/face.svg) is a bitmap to vector conversion of a screenshot of the designed I used in Cricut Design Space. Not ideal, but it should give you a place to start. (I could not find a way to directly export from Design Space.)
 
 ![face](./face/face.svg)
 
