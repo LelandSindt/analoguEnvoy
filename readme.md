@@ -17,7 +17,9 @@ All three versions use PWM to drive analogue gauges with a 3v range.
 I have been using [this 15v meter from Amazon](https://www.amazon.com/Baomain-Analogue-Voltage-Analog-Voltmeter/dp/B06XXM74SC/) and converting them to 3v range by swapping out the internal 15kΩ resistor with a 3kΩ resitor.
 
 ## Custom Face
-Unfortunately I made the face desing in Cricut Design Space and I have not figured out how to export to a simple vector format that I can share here. 😐
+[face.svg](./face/face.svg) is a bitmap to vector conversion of a screen schot of the designed I used in Cricut Design Space. Not ideal, but it should give you a place to start. (I could not find a way to directly export from Design Space.)
+
+![face](./face/face.svg)
 
 # 
 ![front](./images/front.png)
