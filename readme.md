@@ -1,5 +1,5 @@
 # analoguEnvoy
-This project contains three variations of scripts that can display Solar Production and Power Consumption as measured by an Enphase Envoy Communications Gateway.  
+This project contains four variations of scripts that can display Solar Production and Power Consumption as measured by an Enphase Envoy Communications Gateway.  
 
 ## Python MQTT
 [solar.py](/pythonMQTT/solar.py) connectes to an MQTT server and subscribes to production and consumption messages published by [homeassistant](https://www.home-assistant.io/) and collected by a [custom envoy integration](https://github.com/briancmpbll/home_assistant_custom_envoy). This variation was developed on a Raspberry Pi Zero W.
@@ -9,6 +9,9 @@ This project contains three variations of scripts that can display Solar Product
 
 ## CircutPython http
 Written in [CircutPython](https://circuitpython.org/), [code.py](/circutpython/code.py) reads [settings.toml](/circutpython/settings.toml) for an ssid and password to make a wifi connecton. Simiar to the python version your username, password and serial number are used to obtain a token from `enlighten` which is used to query `envoy` locally for consumption and producion information. This variation was developed on a [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html#raspberry-pi-pico-w-and-pico-wh).
+
+## CircutPython MQTT 
+Written in [CircutPython](https://circuitpython.org/), [code.py](/circutpythonMQTT/code.py) reads [settings.toml](/circutpython/settings.toml) for an ssid and password to make a wifi connecton. Similar to the python MQTT vairant it subscribes to production and consumption messages published by homeassistant and collected by a custom envoy integration. This variation was developed on a [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html#raspberry-pi-pico-w-and-pico-wh).
 
 ## PWM
 All three versions use PWM to drive analogue gauges with a 3v range.
