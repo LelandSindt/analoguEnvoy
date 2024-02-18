@@ -10,6 +10,7 @@ import board
 import time
 import adafruit_minimqtt.adafruit_minimqtt as MQTT
 
+#https://github.com/adafruit/Adafruit_CircuitPython_MiniMQTT/blob/main/examples/native_networking/minimqtt_adafruitio_native_networking.py
 
 #https://stackoverflow.com/questions/1969240/mapping-a-range-of-values-to-another
 def translate(sensor_val, in_from, in_to, out_from, out_to):
@@ -32,8 +33,6 @@ def subscribe(mqtt_client, userdata, topic, granted_qos):
   print("Subscribed to {0} with QOS level {1}".format(topic, granted_qos))
 
 def message(client, topic, message):
-  if not("envoy_20223xxxxxxxx_current_power_" in topic):
-    return
   print("New message on topic {0}: {1}".format(topic, message))
   try:
     value = int(message)
@@ -68,9 +67,7 @@ mqtt_client.on_connect = connect
 mqtt_client.on_subscribe = subscribe
 mqtt_client.on_message = message
 
-# long topic strings cause problems so we will just subscribe to _all_ the sensor states and filter them out later. 
-# https://github.com/adafruit/Adafruit_CircuitPython_MiniMQTT/issues/160
-topics = [("homeassistant/sensor/+/state",0)]
+topics = [("homeassistant/sensor/envoy_2022xxxxxxxx_current_power_production/state",0),("homeassistant/sensor/envoy_2022xxxxxxxx_current_power_consumption/state",0)]
 
 try:
   mqtt_client.connect()
@@ -80,6 +77,6 @@ except:
 
 while True:
   try:
-    mqtt_client.loop()
+    mqtt_client.loop(timeout=1)
   except:
     supervisor.reload()
