@@ -10,11 +10,11 @@ This project contains four variations of scripts that can display Solar Producti
 ## CircutPython http
 Written in [CircutPython](https://circuitpython.org/), [code.py](/circutpython/code.py) reads [settings.toml](/circutpython/settings.toml) for an ssid and password to make a wifi connecton. Simiar to the python version your username, password and serial number are used to obtain a token from `enlighten` which is used to query `envoy` locally for consumption and producion information. This variation was developed on a [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html#raspberry-pi-pico-w-and-pico-wh).
 
-## CircutPython MQTT 
+## CircutPython MQTT
 Written in [CircutPython](https://circuitpython.org/), [code.py](/circutpythonMQTT/code.py) reads [settings.toml](/circutpython/settings.toml) for an ssid and password to make a wifi connecton. Similar to the python MQTT vairant it subscribes to production and consumption messages published by homeassistant and collected by a custom envoy integration. This variation was developed on a [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html#raspberry-pi-pico-w-and-pico-wh).
 
 ## PWM
-All three versions use PWM to drive analogue gauges with a 3v range.
+All four versions use PWM to drive analogue gauges with a 3v range.
 
 ## Meters
 I have been using [this 15v meter from Amazon](https://www.amazon.com/Baomain-Analogue-Voltage-Analog-Voltmeter/dp/B06XXM74SC/) and converting them to 3v range by swapping out the internal 15kΩ resistor with a 3kΩ resistor.
